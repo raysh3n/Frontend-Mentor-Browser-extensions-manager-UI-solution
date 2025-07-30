@@ -102,6 +102,7 @@ using lifting state up so that can pass data between components
 
 it is not possible to have a straight forward way to have transition for the background  theme color. Hence did not implement transition for it. 
 
+learned about toggle. For the focus of the toggle, seems like outline does not work, only ring can work here.
 
 
 

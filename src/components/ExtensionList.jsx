@@ -8,7 +8,7 @@ export default function ExtensionList({ filter }) {
   const [data, setData] = useState([]);
 
   useEffect(function () {
-    fetch("/src/data.json")
+    fetch("data.json")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
