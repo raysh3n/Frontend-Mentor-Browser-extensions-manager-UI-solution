@@ -8,7 +8,11 @@ export default function Menu({ filter, onhandleFilter }) {
     "font-medium text-white focus:bg-red-700   bg-red-700  dark:focus:bg-red-400   dark:bg-red-400  dark:text-black dark:hover:bg-red-500 hover:bg-red-500 hover:text-white hover:opacity-100";
 
   const combinedStyle = twMerge(styleClass, selectedStyle);
-
+  
+  function handleFilter(e) {
+    onhandleFilter(e);
+    e.currentTarget.blur();
+  }
   return (
     <div className="container mx-auto mb-5 mt-14 flex flex-col items-center justify-between gap-4 md:flex-row">
       <h1 className="text-3xl font-bold dark:text-white">Extension List</h1>
@@ -22,21 +26,26 @@ export default function Menu({ filter, onhandleFilter }) {
         <button
           className={`${filter === "all" ? combinedStyle : styleClass}`}
           value="all"
-          onClick={onhandleFilter}
+          // onClick={onhandleFilter}
+          onClick={(e) => {
+            onhandleFilter(e);
+            e.currentTarget.blur();
+          }
+}
         >
           All
         </button>
         <button
           className={`${filter === "true" ? combinedStyle : styleClass}`}
           value="true"
-          onClick={onhandleFilter}
+          onClick={handleFilter}
         >
           Active
         </button>
         <button
           className={`${filter === "false" ? combinedStyle : styleClass}`}
           value="false"
-          onClick={onhandleFilter}
+          onClick={handleFilter}
         >
           Inactive
         </button>
