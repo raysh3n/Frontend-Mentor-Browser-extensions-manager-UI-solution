@@ -83,7 +83,10 @@ export default function Navbar({ theme, onToggleTheme }) {
 
       <button
         className="h-100 flex rounded-xl bg-neutral-200 p-3 transition duration-500 hover:bg-neutral-300 focus:bg-neutral-300 focus:outline-none focus:outline-red-400 dark:bg-neutral-700 dark:hover:bg-neutral-500 dark:focus:bg-neutral-500"
-        onClick={onToggleTheme}
+        onClick={(e) => {
+          onToggleTheme();
+          e.currentTarget.blur();
+        }}
       >
         {/* <img src="/assets/images/icon-moon.svg"></img>*/}
         {/*  <img src={`/assets/images/${icon}`} ></img>*/}
